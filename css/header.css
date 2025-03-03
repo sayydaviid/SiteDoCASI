@@ -1,0 +1,77 @@
+.header {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    height: 100px; 
+    padding: 0; 
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 2px solid var(--secondary-color); 
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: flex-end; /* Faz com que os elementos fiquem alinhados na parte inferior */
+    height: 100px; /* Mantém um tamanho fixo */
+  }
+  
+  .logo img {
+    height: 115px; /* Ajuste o tamanho da Ada */
+    margin-right: 10px;
+    position: relative;
+    bottom: -16px; /* Ajuste fino para colar no fundo preto */
+    right: 90px;
+  }
+  
+  .container-text-casi {
+    margin: 0; /* Remove espaçamentos extras do texto */
+    align-self: center; /* Mantém o texto centralizado verticalmente */
+    font-family: var(--main-font), serif; /* Aplica a fonte */
+    font-weight: 500; /* Define como Medium */
+    font-size: 30px;
+    position: relative;
+    left: -100px; /* Move o texto para a esquerda */
+  }
+  
+  .main-title {
+    font-size: 30px; /* Ajuste do tamanho do texto */
+    font-weight: 500; /* Mantém a versão Medium */
+    margin: 0; 
+  }
+  
+  .menu-container-op {
+    font-family: var(--secondary-font), sans-serif !important;
+    font-weight: 400; /* Usa Inter Regular */
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  .menu-container-op > li {
+    display: inline;
+  }
+  
+  .menu-item-list a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 16px;
+    font-family: var(--secondary-font), sans-serif;
+    font-weight: 400; /* Usa Inter Regular */
+  }
+  
+  #button > a {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: var(--secondary-font), sans-serif;
+    font-weight: 400; /* Usa Inter Regular */
+  }

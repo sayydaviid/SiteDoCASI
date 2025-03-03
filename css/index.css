@@ -1,0 +1,17 @@
+@import url('./base.css');
+
+body {
+  background-color: var(--primary-color);
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px); /* Header e Footer com Tamanhos fixos (Ajuste conforme necessário */
+}
+
+.welcome-msg {
+  color: var(--secondary-color);
+}
