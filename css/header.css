@@ -1,77 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600;700&display=swap');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  overflow-x: hidden; /* Impede a rolagem horizontal */
+}
+
+/* HEADER */
 .header {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    height: 100px; 
-    padding: 0; 
-    display: flex;
-    align-items: flex-end;
-    border-bottom: 2px solid var(--secondary-color); 
-  }
-  
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    margin: 0 auto;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: flex-end; /* Faz com que os elementos fiquem alinhados na parte inferior */
-    height: 100px; /* Mantém um tamanho fixo */
-  }
-  
-  .logo img {
-    height: 115px; /* Ajuste o tamanho da Ada */
-    margin-right: 10px;
-    position: relative;
-    bottom: -16px; /* Ajuste fino para colar no fundo preto */
-    right: 90px;
-  }
-  
-  .container-text-casi {
-    margin: 0; /* Remove espaçamentos extras do texto */
-    align-self: center; /* Mantém o texto centralizado verticalmente */
-    font-family: var(--main-font), serif; /* Aplica a fonte */
-    font-weight: 500; /* Define como Medium */
-    font-size: 30px;
-    position: relative;
-    left: -100px; /* Move o texto para a esquerda */
-  }
-  
-  .main-title {
-    font-size: 30px; /* Ajuste do tamanho do texto */
-    font-weight: 500; /* Mantém a versão Medium */
-    margin: 0; 
-  }
-  
-  .menu-container-op {
-    font-family: var(--secondary-font), sans-serif !important;
-    font-weight: 400; /* Usa Inter Regular */
-    display: flex;
-    list-style: none;
-    gap: 20px;
-  }
-  
-  .menu-container-op > li {
-    display: inline;
-  }
-  
-  .menu-item-list a {
-    text-decoration: none;
-    color: var(--secondary-color);
-    font-size: 16px;
-    font-family: var(--secondary-font), sans-serif;
-    font-weight: 400; /* Usa Inter Regular */
-  }
-  
-  #button > a {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    padding: 5px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    font-family: var(--secondary-font), sans-serif;
-    font-weight: 400; /* Usa Inter Regular */
-  }
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  height: 100px;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 2px solid var(--secondary-color);
+  position: relative; /* Garante que elementos absolutos fiquem dentro dele */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: flex-end;
+  height: 100px;
+}
+
+.logo img {
+  height: 115px;
+  margin-right: 10px;
+  position: relative;
+  bottom: -16px;
+  right: 90px;
+}
+
+.container-text-casi {
+  margin: 0;
+  align-self: center;
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: 30px;
+  position: relative;
+  left: -100px;
+}
+
+.main-title {
+  font-size: 30px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* MENU */
+.menu-container-op {
+  font-family: var(--secondary-font), sans-serif !important;
+  font-weight: 400;
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.menu-container-op > li {
+  display: inline;
+}
+
+.menu-item-list a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-size: 16px; 
+  font-family: var(--secondary-font), sans-serif;
+  font-weight: 400;
+}
+
+/* BOTÃO LOJA */
+#button > a {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Adiciona efeito de destaque */
+#button:hover a {
+  background-color: #f0f0f0;
+  color: black;
+  box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.4);
+}
+
+/* DROPDOWN MENU */
+.dropdown {
+  position: relative; /* Garante que o dropdown não empurre outros elementos */
+}
+
+.dropdown-menu {
+  list-style: none; /* Remove os bullets dos itens */
+  position: absolute;
+  top: 79%;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  width: 160px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  display: none; /* Esconde o menu por padrão */
+  flex-direction: column;
+  z-index: 999; /* Mantém o menu acima de outros elementos */
+  padding: 5px 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.dropdown-menu li {
+  list-style: none; /* Remove os bullets dos itens */
+  border-bottom: 2px solid rgba(255, 255, 255, 1);
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li:last-child {
+  height: 20px;
+  right: 3px ;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  position: relative;
+  bottom: 15px;
+}
+
+.dropdown-menu li:last-child a {
+  padding: 5px 15px;
+}
+
+.dropdown-menu li a {
+  padding: 8px 12px;
+  display: block;
+  color: white;
+  text-align: left;
+  white-space: nowrap;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+}
+
+.dropdown-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* EXIBE O DROPDOWN NO HOVER */
+.dropdown:hover .dropdown-menu {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* SETA DO DROPDOWN */
+.dropdown-arrow {
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.dropdown-arrow svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Remove a linha nos itens do dropdown */
+.dropdown-menu a::after {
+  display: none;
+}
+
+
+/* Estilização geral do menu */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  position: relative;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  display: block;
+}
+
+/* Criando a linha inicial oculta apenas para os itens do menu principal */
+nav > ul > li > a:not(#button a, .dropdown a)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px; /* Define a posição abaixo do texto */
+  width: 0;
+  height: 2px;
+  background-color: white; /* Cor da linha */
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+  z-index: 100; /* Garante que a linha fique sobre o menu */
+}
+
+/* Ao passar o mouse, a linha se expande */
+nav > ul > li > a:not(#button a, .dropdown a):hover::after {
+  width: 100%;
+}
