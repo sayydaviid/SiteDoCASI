@@ -21,7 +21,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Sobre</a></li>
-                        <li><a href="#">Gestão Atual</a></li>
+                        <li><a href="./stewardship.php">Gestão Atual</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-list"><a href="./notices.php">Notícias</a></li>

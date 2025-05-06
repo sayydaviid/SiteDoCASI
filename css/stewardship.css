@@ -1,0 +1,112 @@
+.stewardship {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.profile.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background-color: #5a7522;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.photo:hover {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+/* LINHA & SETA */
+.profile:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 150px; left: 75px;
+  width: 2px; height: 4rem;
+  background: #fff;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+.profile:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: calc(150px + 4rem); left: 75px;
+  border: 6px solid transparent;
+  border-top-color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.3s;
+}
+.profile.active:not(:last-child)::after { 
+  transform: scaleY(1); 
+}
+.profile.active:not(:last-child)::before { 
+  opacity: 1; 
+}
+
+/* bloco .info */
+.profile .info {
+  position: absolute;
+  top: 50%; left: 160px;
+  transform: translateY(-50%);
+  width: 240px;
+  pointer-events: none;
+}
+
+/* nome: apenas ele visível inicialmente, lateral */
+.profile .info h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #fff;
+  transition: top 0.4s ease;
+  position: relative;
+  top: 50px;    /* começa centrado verticalmente */
+}
+
+/* cargo e descrição escondidos via opacity */
+.profile .info .role,
+.profile .info .description {
+  opacity: 0;
+  margin: 0.25rem 0 0;
+  color: #fff;
+  line-height: 1.4;
+  transition: opacity 0.3s ease;
+}
+
+/* MOVIMENTAÇÃO DO NOME E APARECER DO TEXTO NO HOVER */
+.profile:hover .info h3 {
+  top: 0px;    /* sobe o nome apenas no hover deste perfil */
+}
+.profile:hover .info .role {
+  transition-delay: 0.4s;
+  opacity: 1;
+}
+.profile:hover .info .description {
+  transition-delay: 0.7s;
+  opacity: 1;
+}
